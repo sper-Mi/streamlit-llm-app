@@ -1,20 +1,20 @@
 #!pip install langchain==0.3.26 openai==1.91.0 langchain-community==0.3.26 langchain-openai==0.3.27 httpx==0.28.1
 #pip install python-dotenv
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
 
-def llm(input_message, selected_item):
+def llm_chain(input_message, selected_item):
     messages = [
         SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。"),
         HumanMessage(content=input_message),
     ]
     result = llm(messages)
     return result
-
-from dotenv import load_dotenv
-load_dotenv()
 
 import streamlit as st
 st.title("専門家が答えるWebアプリ")
@@ -33,7 +33,9 @@ input_message = st.text_input(label="質問を入力してください。")
 
 if st.button("実行"):
     st.divider()
-    st.error("質問を入力してから「実行」ボタンを押してください。")
-else:
-    result = llm(input_message, selected_item)
-    st.write(result.content)
+
+    if input_message:
+        result = llm_chain(input_message, selected_item)
+        st.write(result.content)
+    else:
+        st.error("質問を入力してから「実行」ボタンを押してください。")
