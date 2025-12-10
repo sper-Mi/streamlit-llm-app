@@ -65,4 +65,4 @@ if st.button("実行"):
         result = llm_chain(input_message, selected_item)
         st.write(result.content)
     else:
-        st.error("質問を入力してから「実行」ボタンを押してください。")
+        st.error("質問を入力してから「実行」ボタンを押してください。", icon=ERROR_ICON)
