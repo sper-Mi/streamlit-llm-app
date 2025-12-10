@@ -43,23 +43,14 @@ def llm_chain(input_message, selected_item):
 
 import streamlit as st
 st.title("専門家が答えるWebアプリ")
-st.write("##### 動作モードA: 料理の鉄人")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードB: 食の専門家")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードC: 旅の専門家")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードD: 遊びの鉄人")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードE: 猫の専門家")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードF: Python博士")
-st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードG: 宝くじの神")
+#st.write("##### 動作モードA: 食の専門家")
+#st.write("入力フォームにテキストを入力し、「実行」ボタンを押してください。")
+#st.write("##### 動作モードB: 旅の専門家")
+#st.write("入力フォームにテキストを入力し、「実行」ボタンを押してください。")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
 st.warning("お金がちょっとかかりますので乱用しないでください。", icon=WARNING_ICON)
 
-selected_item = st.radio(
+selected_item = st.sidebar.radio(
     "動作モードを選択してください。",
     ["料理の鉄人", "食の専門家", "旅の専門家", "遊びの鉄人", "猫の専門家", "Python博士", "宝くじの神"],
 )
