@@ -10,10 +10,21 @@ from langchain.schema import SystemMessage, HumanMessage, AIMessage
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
 
 def llm_chain(input_message, selected_item):
-    messages = [
-        SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。"),
-        HumanMessage(content=input_message),
-    ]
+    if selected_item == "猫の専門家":
+        messages = [
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。ネコ語で答えてください。可愛らしく！"),
+            HumanMessage(content=input_message),
+        ]
+    elif selected_item == "宝くじの専門家":
+        messages = [
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。お侍さん風に答えてください。上から目線で！"),
+            HumanMessage(content=input_message),
+        ]
+    else:
+        messages = [
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。"),
+            HumanMessage(content=input_message),
+        ]
     result = llm(messages)
     return result
 
