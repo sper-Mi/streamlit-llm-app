@@ -1,5 +1,6 @@
 #!pip install langchain==0.3.26 openai==1.91.0 langchain-community==0.3.26 langchain-openai==0.3.27 httpx==0.28.1
 #pip install python-dotenv
+#pip install streamlit==1.41.1
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -22,10 +23,12 @@ st.write("##### 動作モードA: 食の専門家")
 st.write("入力フォームにテキストを入力し、「実行」ボタンを押してください。")
 st.write("##### 動作モードB: 旅の専門家")
 st.write("入力フォームにテキストを入力し、「実行」ボタンを押してください。")
+st.write("##### 動作モードC: 宝くじの専門家")
+st.write("入力フォームにテキストを入力し、「実行」ボタンを押してください。")
 
 selected_item = st.radio(
     "動作モードを選択してください。",
-    ["食の専門家", "旅の専門家"]
+    ["食の専門家", "旅の専門家", "宝くじの専門家"],
 )
 
 st.divider()
