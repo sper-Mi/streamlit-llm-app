@@ -22,7 +22,7 @@ def llm_chain(input_message, selected_item):
         ]
     elif selected_item == "宝くじの専門家":
         messages = [
-            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。お侍さん風に答えてください。上から目線で！"),
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。予想する場合は庶民の想像を絶するような予想を５パターン出してください。お侍さん風に答えてください。上から目線で！"),
             HumanMessage(content=input_message),
         ]
     else:
