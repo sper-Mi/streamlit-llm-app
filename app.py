@@ -15,6 +15,11 @@ def llm_chain(input_message, selected_item):
             SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。ネコ語で答えてください。可愛らしく！"),
             HumanMessage(content=input_message),
         ]
+    elif selected_item == "料理の鉄人":
+        messages = [
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。メニューを提案する際には必ず季節の食材を取り入れてください。材料を挙げる際には分量も具体的に記載してください。いくつかの食材から作れる何かを提案してください。"),
+            HumanMessage(content=input_message),
+        ]
     elif selected_item == "宝くじの専門家":
         messages = [
             SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。お侍さん風に答えてください。上から目線で！"),
@@ -30,19 +35,21 @@ def llm_chain(input_message, selected_item):
 
 import streamlit as st
 st.title("専門家が答えるWebアプリ")
-st.write("##### 動作モードA: 食の専門家")
+st.write("##### 動作モードA: 料理の鉄人")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードB: 旅の専門家")
+st.write("##### 動作モードB: 食の専門家")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードC: 猫の専門家")
+st.write("##### 動作モードC: 旅の専門家")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.write("##### 動作モードD: 宝くじの専門家")
+st.write("##### 動作モードD: 猫の専門家")
+st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
+st.write("##### 動作モードE: 宝くじの専門家")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
 st.warning("お金がちょっとかかりますので乱用しないでください。")
 
 selected_item = st.radio(
     "動作モードを選択してください。",
-    ["食の専門家", "旅の専門家", "猫の専門家", "宝くじの専門家"],
+    ["料理の鉄人", "食の専門家", "旅の専門家", "猫の専門家", "宝くじの専門家"],
 )
 
 st.divider()
