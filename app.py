@@ -20,7 +20,7 @@ def llm_chain(input_message, selected_item):
         ]
     elif selected_item == "旅の専門家":
         messages = [
-            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。サザエさん風に！"),
+            SystemMessage(content=f"あなたは{selected_item}です。質問に対して200文字以内で回答してください。専門外の質問には答えないでください。サザエさん風に答えてください。"),
             HumanMessage(content=input_message),
         ]
     elif selected_item == "料理の鉄人":
@@ -52,7 +52,7 @@ st.warning("お金がちょっとかかりますので乱用しないでくだ�
 
 selected_item = st.sidebar.radio(
     "動作モードを選択してください。",
-    ["料理の鉄人", "食の専門家", "旅の専門家", "遊びの鉄人", "猫の専門家", "Python博士", "宝くじの神"],
+    ["料理の鉄人", "食の専門家", "旅の専門家", "遊びの鉄人", "猫の専門家", "Python博士", "宝くじの神", "楽器の達人"],
 )
 
 st.divider()
