@@ -9,6 +9,9 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
 
+WARNING_ICON = ":material/warning:"
+ERROR_ICON = ":material/error:"
+
 def llm_chain(input_message, selected_item):
     if selected_item == "猫の専門家":
         messages = [
@@ -54,7 +57,7 @@ st.write("##### 動作モードF: Python博士")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
 st.write("##### 動作モードG: 宝くじの神")
 st.markdown(":violet[入力フォームにテキストを入力し、「実行」ボタンを押してください。]")
-st.warning("お金がちょっとかかりますので乱用しないでください。")
+st.warning("お金がちょっとかかりますので乱用しないでください。", icon=WARNING_ICON)
 
 selected_item = st.radio(
     "動作モードを選択してください。",
